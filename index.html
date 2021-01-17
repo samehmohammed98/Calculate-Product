@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Vue Calculate Product</title>
+</head>
+<body>
+  <div id="vue-test" class="container">
+    <div class="product">
+      <h3> Product Title </h3>
+      <p> Product Description </p>
+      <sapn class="price"> Price: ${{ price }} </sapn>
+      <span class="amount-title"> Amount: 1 </span>
+      <input type="range" min="1" max="20" step="1" v-model="amount" />
+      <div class="total-price">
+        <span class="amount"> Amount {{ amount }} </span>
+        <span class="total"> Total ${{ totalPrice }} </span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#vue-test',
+      data: {
+        amount: 1,
+        price: 50
+      },
+      computed: {
+        totalPrice: function() {
+          return this.amount * this.price;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
